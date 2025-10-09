@@ -15,8 +15,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TViewPrincipal, ViewPrincipal);
   Application.CreateForm(TModelConexaoDM, ModelConexaoDM);
-  Application.CreateForm(TModelCidadesDM, ModelCidadesDM);
-  Application.CreateForm(TViewHerancasBuscar, ViewHerancasBuscar);
-  Application.CreateForm(TViewCidadesBuscar, ViewCidadesBuscar);
   Application.Run;
 end.

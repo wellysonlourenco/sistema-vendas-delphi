@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
-  Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Menus;
 
 type
   TViewHerancasBuscar = class(TForm)
@@ -22,6 +22,11 @@ type
     pnTotal: TPanel;
     lbTotal: TLabel;
     DataSource1: TDataSource;
+    btnAlterar: TBitBtn;
+    pmMenu: TPopupMenu;
+    Atualizar1: TMenuItem;
+    N1: TMenuItem;
+    Excluir1: TMenuItem;
     procedure btnFecharClick(Sender: TObject);
     procedure btnUtilizarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -35,6 +40,9 @@ type
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure rdGroupFiltrosClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure Atualizar1Click(Sender: TObject);
+    procedure Excluir1Click(Sender: TObject);
   private
 
   protected
@@ -60,6 +68,17 @@ implementation
 //  mrIgnore   = 5;
 //  mrYes      = 6;
 //  mrNo       = 7;
+
+procedure TViewHerancasBuscar.Atualizar1Click(Sender: TObject);
+begin
+   Self.BuscarDados;
+end;
+
+procedure TViewHerancasBuscar.btnAlterarClick(Sender: TObject);
+begin
+  if (DataSource1.DataSet.IsEmpty) then
+    raise Exception.Create('Selecione um registro');
+end;
 
 procedure TViewHerancasBuscar.btnFecharClick(Sender: TObject);
 begin
@@ -129,6 +148,22 @@ begin
     btnUtilizar.Click;               
 end;
 
+procedure TViewHerancasBuscar.Excluir1Click(Sender: TObject);
+begin
+  if (DataSource1.DataSet.IsEmpty) then
+    raise Exception.Create('Selecione um registro');
+
+  if(Application.MessageBox(
+    'Confirma exclusão desse registro?',
+    'Confirma exclusão?',
+    MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) <> idYes )
+  then
+    Exit;
+
+  DataSource1.DataSet.Delete;
+  Self.BuscarDados;
+end;
+
 procedure TViewHerancasBuscar.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -139,9 +174,16 @@ begin
         Key := 0;
     end;
 
-    VK_ESCAPE: btnFechar.Click;  // ESC
-
+    VK_ESCAPE:
+      btnFechar.Click;  // ESC
   end;
+
+  if(Key in [VK_F1..VK_F12]) then
+  begin
+    if(rdGroupFiltros.Items.Count >= Key - VK_F1) then
+      rdGroupFiltros.ItemIndex := Key - VK_F1;
+  end;
+
 end;
 
 procedure TViewHerancasBuscar.FormShow(Sender: TObject);
