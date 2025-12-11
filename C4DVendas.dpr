@@ -2,7 +2,7 @@ program C4DVendas;
 
 uses
   Vcl.Forms,
-  View.Principal in 'View\View.Principal.pas' {ViewPrincipal};
+  View.Principal in 'Src\View.Principal.pas' {ViewPrincipal};
 
 {$R *.res}
 
