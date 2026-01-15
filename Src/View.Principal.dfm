@@ -2,44 +2,25 @@ object ViewPrincipal: TViewPrincipal
   Left = 0
   Top = 0
   Caption = 'Code4Delphi - Vendas - 1.0.0'
-  ClientHeight = 531
-  ClientWidth = 888
-  Color = clWhite
+  ClientHeight = 519
+  ClientWidth = 712
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
   Menu = MainMenu1
-  OldCreateOrder = False
   WindowState = wsMaximized
-  OnCreate = FormCreate
   DesignSize = (
-    888
-    531)
-  PixelsPerInch = 96
-  TextHeight = 13
-  object Label1: TLabel
-    Left = 514
-    Top = 506
-    Width = 366
-    Height = 17
-    Alignment = taRightJustify
-    Anchors = [akRight, akBottom]
-    Caption = 'Curso Delphi - Sistema de vendas do zero ao multicamadas'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = 4227072
-    Font.Height = -13
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentFont = False
-    Layout = tlCenter
-  end
+    712
+    519)
+  TextHeight = 15
   object pnLogoBack: TPanel
-    Left = 8
-    Top = 418
-    Width = 377
+    Left = 0
+    Top = 414
+    Width = 385
     Height = 105
     Anchors = [akLeft, akBottom]
     BevelOuter = bvNone
@@ -47,7 +28,7 @@ object ViewPrincipal: TViewPrincipal
     object Panel2: TPanel
       Left = 0
       Top = 0
-      Width = 105
+      Width = 121
       Height = 105
       Align = alLeft
       BevelOuter = bvNone
@@ -55,7 +36,7 @@ object ViewPrincipal: TViewPrincipal
       object Image1: TImage
         Left = 0
         Top = 0
-        Width = 105
+        Width = 121
         Height = 105
         Align = alClient
         Picture.Data = {
@@ -337,29 +318,28 @@ object ViewPrincipal: TViewPrincipal
           714704520CA4CD44BCD38B01AA4589591E03655F01635F21773CB31C0E5F6200
           3816E00FEAFCA4F26E833FF4BF475164E5324CB9040000000049454E44AE4260
           82}
-        ExplicitLeft = 16
-        ExplicitTop = 24
+        ExplicitLeft = 24
+        ExplicitTop = -8
       end
     end
     object Panel3: TPanel
-      Left = 105
+      Left = 121
       Top = 0
-      Width = 272
+      Width = 264
       Height = 105
       Align = alClient
       BevelOuter = bvNone
-      Padding.Left = 5
-      Padding.Top = 11
+      Padding.Left = 15
       TabOrder = 1
-      object lbYoutube: TLabel
-        Left = 5
-        Top = 11
-        Width = 267
-        Height = 41
+      object Label1: TLabel
+        Left = 15
+        Top = 0
+        Width = 249
+        Height = 105
         Cursor = crHandPoint
-        Align = alTop
+        Align = alClient
         AutoSize = False
-        Caption = 'https://www.youtube.com/@code4delphi'
+        Caption = 'https://github.com/'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -367,39 +347,18 @@ object ViewPrincipal: TViewPrincipal
         Font.Style = [fsBold]
         ParentFont = False
         Layout = tlCenter
-        OnClick = lbYoutubeClick
-        OnMouseEnter = lbYoutubeMouseEnter
-        OnMouseLeave = lbYoutubeMouseLeave
-        ExplicitLeft = 6
-        ExplicitTop = -6
-      end
-      object lbGitHub: TLabel
-        Left = 5
-        Top = 52
-        Width = 267
-        Height = 41
-        Cursor = crHandPoint
-        Align = alTop
-        AutoSize = False
-        Caption = 'https://github.com/Code4Delphi'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Segoe UI Semibold'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Layout = tlCenter
-        OnClick = lbYoutubeClick
-        OnMouseEnter = lbYoutubeMouseEnter
-        OnMouseLeave = lbYoutubeMouseLeave
-        ExplicitLeft = 6
-        ExplicitTop = 72
+        OnClick = lbGithubClickClick
+        OnMouseEnter = lbGithubClickMouseEnter
+        OnMouseLeave = lbGithubClickMouseLeave
+        ExplicitLeft = 0
+        ExplicitWidth = 264
+        ExplicitHeight = 33
       end
     end
   end
   object MainMenu1: TMainMenu
-    Left = 32
-    Top = 16
+    Left = 192
+    Top = 40
     object Cadastros1: TMenuItem
       Caption = 'Cadastros'
       object Empresas1: TMenuItem
@@ -461,7 +420,6 @@ object ViewPrincipal: TViewPrincipal
           D8CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCD1D1D194BBE86C
           BAFF67B3FF76BCFAA7C0DFCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC}
         Caption = 'Cidades'
-        OnClick = Cidades1Click
       end
       object Pessoas1: TMenuItem
         Bitmap.Data = {

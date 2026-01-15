@@ -1,26 +1,20 @@
 object ModelCidadesDM: TModelCidadesDM
-  Height = 480
-  Width = 640
-  object DS_QCidadesCadastro: TDataSource
-    Left = 256
-    Top = 96
-  end
-  object DS_QCidadesBusca: TDataSource
-    Left = 256
-    Top = 160
-  end
+  OldCreateOrder = False
+  Height = 240
+  Width = 425
   object QCidadesCadastro: TFDQuery
     Connection = ModelConexaoDM.FDConnection1
     SQL.Strings = (
       'select * from cidades')
-    Left = 136
-    Top = 96
+    Left = 104
+    Top = 56
     object QCidadesCadastroID: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
       Origin = 'ID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      DisplayFormat = '000000'
     end
     object QCidadesCadastroNOME: TStringField
       DisplayLabel = 'Nome'
@@ -43,14 +37,15 @@ object ModelCidadesDM: TModelCidadesDM
     Connection = ModelConexaoDM.FDConnection1
     SQL.Strings = (
       'select * from cidades')
-    Left = 136
-    Top = 160
+    Left = 216
+    Top = 56
     object QCidadesBuscaID: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
       Origin = 'ID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      DisplayFormat = '000000'
     end
     object QCidadesBuscaNOME: TStringField
       DisplayLabel = 'Nome'

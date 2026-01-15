@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{A4092232-4022-4850-A521-F7063A8CEBDE}</ProjectGuid>
+        <ProjectGuid>{4B121C25-B239-4A09-8248-2EC131CF71B1}</ProjectGuid>
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
+        <MainSource>C4DVendas.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">C4DVendas</ProjectName>
-        <TargetedPlatforms>3</TargetedPlatforms>
+        <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>C4DVendas.dpr</MainSource>
+        <ProjectName Condition="'$(ProjectName)'==''">C4DVendas</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -35,12 +35,6 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
-        <Cfg_1_Win64>true</Cfg_1_Win64>
-        <CfgParent>Cfg_1</CfgParent>
-        <Cfg_1>true</Cfg_1>
-        <Base>true</Base>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -48,12 +42,6 @@
     </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
         <Cfg_2_Win32>true</Cfg_2_Win32>
-        <CfgParent>Cfg_2</CfgParent>
-        <Cfg_2>true</Cfg_2>
-        <Base>true</Base>
-    </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
-        <Cfg_2_Win64>true</Cfg_2_Win64>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
@@ -73,22 +61,19 @@
         <SanitizedProjectName>C4DVendas</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>vclwinx;ACBr_TCP;ACBr_OpenDelivery;ACBr_NFCom;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;ACBr_OpenSSL;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;ACBr_MTER;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;bindcompfmx;inetdb;ibmonitor;FireDACSqliteDriver;DbxClientDriver;soapmidas;vclactnband;ACBr_PagFor;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;dbrtl;Skia.Package.FMX;fmxdae;ACBr_NFSe;FireDACMSAccDriver;CustomIPTransport;ACBr_NFe;ACBr_ANe;vcldsnap;DBXInterBaseDriver;IndySystem;ACBr_Diversos;Skia.Package.VCL;vcldb;ACBr_Integrador;ibxbindings;ACBr_PIXCD;ACBr_TEFD;vclFireDAC;ACBr_CTe;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;ACBr_Serial;ACBr_Comum;ACBr_NFeDanfeESCPOS;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;ACBr_BlocoX;xmlrtl;tethering;ACBrBaaS;ibxpress;bindcompvcl;dsnap;CloudService;ACBr_OFX;vclib;fmxobj;bindcompvclsmp;ACBr_DebitoAutomatico;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DBXSqliteDriver;DBXDb2Driver;vclactnband;vclFireDAC;tethering;FireDACADSDriver;ACBr_BPeDabpeESCPOS;JvPluginSystem;ACBr_BPe;FireDACMSSQLDriver;vcltouch;JvBands;ACBr_NFe;vcldb;ACBr_NFeDanfeFR;svn;JvJans;ACBr_NFeDanfeESCPOS;ACBr_OFX;JvDotNetCtrls;vclib;frxTee26;ACBr_SATExtratoFR;FireDACDBXDriver;ACBr_NFSeDanfseFR;vclx;ACBr_SATExtratoRL;ACBr_GTIN;RESTBackendComponents;ACBr_Reinf;VCLRESTComponents;fsTee26;vclie;bindengine;CloudService;JvHMI;FireDACMySQLDriver;ACBr_PAF;fsIBX26;ACBr_SATECFVirtual;frx26;C4DMaskEdit;DataSnapClient;ACBr_OpenDelivery;bindcompdbx;ACBr_CTeDacteRL;ACBr_TCP;DBXSybaseASEDriver;IndyIPServer;RtmRxDB270;ACBr_CTe;IndySystem;frxDBX26;fsADO26;ACBr_PagFor;dsnapcon;VirtualTreesR;ACBre_Social;FireDACMSAccDriver;FireDACInfxDriver;fmxFireDAC;vclimg;ACBr_SPEDImportar;Jcl;bsfd103Rio;mydacvcl260;ACBr_SPED;ACBr_MDFe;emshosting;ACBr_BoletoRL;ACBr_LFD;DBXOdbcDriver;FireDACTDataDriver;FMXTee;crcontrols260;soaprtl;DbxCommonDriver;ACBr_CIOT;JvManagedThreads;ACBr_NFSeDanfseRL;C4DWizard;xmlrtl;DataSnapNativeClient;soapmidas;fmxobj;JvTimeFramework;rtl;emsserverresource;DbxClientDriver;DBXSybaseASADriver;pkItemMenuHelpDelphi;JvSystem;JvStdCtrls;ACBr_Convenio115;appanalytics;IndyIPClient;bindcompvcl;TeeUI;ACBr_NFSeXDANFSeFR;JvDocking;JvPascalInterpreter;VclSmp;FireDACODBCDriver;mydacfmx260;JclVcl;DataSnapIndy10ServerTransport;ACBr_Boleto;DataSnapProviderClient;ACBr_SEF2;FireDACMongoDBDriver;JvControls;JvPrintPreview;ACBr_MDFeDamdfeFR;ACBr_NFSe;DataSnapServerMidas;RESTComponents;ZComponent;DBXInterBaseDriver;ACBr_NF3e;ZCore;SWH;ACBr_TEFD;emsclientfiredac;dacfmx260;DataSnapFireDAC;svnui;JvGlobus;FMXAdvancedControls;ACBr_SATWS;DBXMSSQLDriver;JvMM;ACBr_MDFeDamdfeRL;DatasnapConnectorsFreePascal;PngComponentsD;ACBr_EDI;ACBr_ONE;JvNet;DBXOracleDriver;inetdb;JvAppFrm;ACBr_Diversos;ACBr_GNREGuiaFR;FmxTeeUI;emsedge;ACBr_LCDPR;FireDACIBDriver;fmx;fmxdae;DSPack_DXE2;ACBr_CTeDacteFR;MSNPopUp_D104;ZipMasterR;JvWizards;dacvcl260;ACBr_Ponto;fs26;dbexpress;IndyCore;frxIntIO26;ZParseSql;JvPageComps;dsnap;DataSnapCommon;emsclient;FireDACCommon;JvDB;frxcs26;ACBr_NFSeX;DataSnapConnectors;ACBR_DeSTDA;soapserver;ACBr_SAT;JclDeveloperTools;FireDACOracleDriver;DBXMySQLDriver;JvCmp;DBXFirebirdDriver;ACBr_Sintegra;FireDACCommonODBC;FireDACCommonDriver;ACBr_GNRE;ACBr_ADRCST;frxIntIOIndy26;inet;IndyIPCommon;JvCustom;vcl;ACBr_NFeDanfeRL;JvXPCtrls;frxDB26;ACBr_SATExtratoESCPOS;FireDACDb2Driver;ACBr_Integrador;fsDB26;ZDbc;TeeDB;FireDAC;mydac260;JvCore;ACBr_Comum;frxe26;JvCrypt;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;ACBr_GNREGuiaRL;frxIBX26;JvDlgs;JvRuntimeDesign;VDOPrint;ibxpress;Tee;DataSnapServer;ibxbindings;BossExperts;dac260;FireDACDSDriver;vclwinx;mysqlmon260;ACBr_OpenSSL;frxADO26;CustomIPTransport;vcldsnap;ACBr_PIXCD;bindcomp;RtmRxCtl270;ZPlain;DBXInformixDriver;ACBr_Serial;frce;ACBr_NFSeXDanfseRL;ACBr_BlocoX;dbxcds;ACBr_NFCeECFVirtual;adortl;ACBr_BoletoFR;ACBr_ANe;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;JclContainers;ACBr_NF3eDANF3eESCPOS;ACBr_MTER;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <DCC_ExeOutput>bin\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_DcuOutput>dcu\$(Platform)\$(Config)</DCC_DcuOutput>
+        <Icon_MainIcon>Img\c4d_logo_48x48.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>vclwinx;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;bindcompfmx;inetdb;ibmonitor;FireDACSqliteDriver;DbxClientDriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;dbrtl;fmxdae;FireDACMSAccDriver;CustomIPTransport;vcldsnap;DBXInterBaseDriver;IndySystem;Skia.Package.VCL;vcldb;ibxbindings;vclFireDAC;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;xmlrtl;tethering;ibxpress;bindcompvcl;dsnap;CloudService;vclib;fmxobj;bindcompvclsmp;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
-        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
-        <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <DCC_UsePackage>DBXSqliteDriver;DBXDb2Driver;vclactnband;vclFireDAC;tethering;FireDACADSDriver;FireDACMSSQLDriver;vcltouch;vcldb;vclib;FireDACDBXDriver;vclx;RESTBackendComponents;VCLRESTComponents;vclie;bindengine;CloudService;FireDACMySQLDriver;DataSnapClient;bindcompdbx;DBXSybaseASEDriver;IndyIPServer;IndySystem;dsnapcon;VirtualTreesR;FireDACMSAccDriver;FireDACInfxDriver;fmxFireDAC;vclimg;emshosting;DBXOdbcDriver;FireDACTDataDriver;FMXTee;soaprtl;DbxCommonDriver;xmlrtl;DataSnapNativeClient;soapmidas;fmxobj;rtl;emsserverresource;DbxClientDriver;DBXSybaseASADriver;appanalytics;IndyIPClient;bindcompvcl;TeeUI;VclSmp;FireDACODBCDriver;DataSnapIndy10ServerTransport;DataSnapProviderClient;FireDACMongoDBDriver;DataSnapServerMidas;RESTComponents;ZComponent;DBXInterBaseDriver;ZCore;emsclientfiredac;DataSnapFireDAC;DBXMSSQLDriver;DatasnapConnectorsFreePascal;PngComponentsD;DBXOracleDriver;inetdb;FmxTeeUI;emsedge;FireDACIBDriver;fmx;fmxdae;DSPack_DXE2;dbexpress;IndyCore;ZParseSql;dsnap;DataSnapCommon;emsclient;FireDACCommon;DataSnapConnectors;soapserver;FireDACOracleDriver;DBXMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;inet;IndyIPCommon;vcl;FireDACDb2Driver;ZDbc;TeeDB;FireDAC;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;ibxpress;Tee;DataSnapServer;ibxbindings;FireDACDSDriver;vclwinx;CustomIPTransport;vcldsnap;bindcomp;ZPlain;DBXInformixDriver;dbxcds;adortl;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -97,15 +82,14 @@
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
-        <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
-        <DCC_RangeChecking>true</DCC_RangeChecking>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>Img\c4d_logo_48x48.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -114,17 +98,33 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Src\View.Principal.pas">
+        <DCCReference Include="Src\View\View.Principal.pas">
             <Form>ViewPrincipal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Src\Model\Conexao\Model.Conexao.DM.pas">
+            <Form>ModelConexaoDM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Src\Model\Cidades\Model.Cidades.DM.pas">
+            <Form>ModelCidadesDM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Src\View\Herancas\View.Herancas.Buscar.pas">
+            <Form>ViewHerancasBuscar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Src\View\Cidades\View.Cidades.Buscar.pas">
+            <Form>ViewCidadesBuscar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -147,14 +147,14 @@
                 <Source>
                     <Source Name="MainSource">C4DVendas.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompfmx260.bpl">Embarcadero LiveBindings Components FireMonkey</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
-                <DeployFile LocalName="Win32\Debug\C4DVendas.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>C4DVendas.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
+                <DeployFile LocalName="bin\Win32\Debug\C4DVendas.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -1098,6 +1098,7 @@
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSSimARM64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME).app"/>
@@ -1108,7 +1109,7 @@
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>
-                <Platform value="Win64">True</Platform>
+                <Platform value="Win64">False</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

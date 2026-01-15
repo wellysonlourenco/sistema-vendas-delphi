@@ -3,9 +3,20 @@ unit View.Principal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,
-  Vcl.Imaging.pngimage, Vcl.StdCtrls, ShellApi;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.Menus,
+  Vcl.StdCtrls,
+  Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls,
+  ShellAPI;
 
 type
   TViewPrincipal = class(TForm)
@@ -28,10 +39,14 @@ type
     Panel2: TPanel;
     Image1: TImage;
     Panel3: TPanel;
+    lbYoutube: TLabel;
+    lbGitHub: TLabel;
     Label1: TLabel;
-    procedure lbGithubClickClick(Sender: TObject);
-    procedure lbGithubClickMouseEnter(Sender: TObject);
-    procedure lbGithubClickMouseLeave(Sender: TObject);
+    procedure lbYoutubeClick(Sender: TObject);
+    procedure lbYoutubeMouseEnter(Sender: TObject);
+    procedure lbYoutubeMouseLeave(Sender: TObject);
+    procedure Cidades1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,17 +60,35 @@ implementation
 
 {$R *.dfm}
 
-procedure TViewPrincipal.lbGithubClickClick(Sender: TObject);
+uses
+  View.Cidades.Buscar;
+
+procedure TViewPrincipal.Cidades1Click(Sender: TObject);
 begin
-  ShellExecute(0, nil, PChar(TLabel(Sender).Caption), '', '', Sw_ShowNormal);
+  ViewCidadesBuscar := TViewCidadesBuscar.Create(nil);
+  try
+    ViewCidadesBuscar.ShowModal;
+  finally
+    FreeAndNil(ViewCidadesBuscar);
+  end;
 end;
 
-procedure TViewPrincipal.lbGithubClickMouseEnter(Sender: TObject);
+procedure TViewPrincipal.FormCreate(Sender: TObject);
+begin
+  ReportMemoryLeaksOnShutdown := True;
+end;
+
+procedure TViewPrincipal.lbYoutubeClick(Sender: TObject);
+begin
+  ShellExecute(0, nil, PChar(TLabel(Sender).Caption), '', '', SW_ShowNormal);
+end;
+
+procedure TViewPrincipal.lbYoutubeMouseEnter(Sender: TObject);
 begin
   TLabel(Sender).Font.Color := clRed;
 end;
 
-procedure TViewPrincipal.lbGithubClickMouseLeave(Sender: TObject);
+procedure TViewPrincipal.lbYoutubeMouseLeave(Sender: TObject);
 begin
   TLabel(Sender).Font.Color := clWindowText;
 end;

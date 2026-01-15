@@ -3,15 +3,24 @@ unit Model.Cidades.DM;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.FMTBcd, Data.DB, Data.SqlExpr, Model.Conexao.DM,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
-  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  System.SysUtils,
+  System.Classes,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Param,
+  FireDAC.Stan.Error,
+  FireDAC.DatS,
+  FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf,
+  FireDAC.Stan.Async,
+  FireDAC.DApt,
+  Data.DB,
+  FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client,
+  Model.Conexao.DM;
 
 type
   TModelCidadesDM = class(TDataModule)
-    DS_QCidadesCadastro: TDataSource;
-    DS_QCidadesBusca: TDataSource;
     QCidadesCadastro: TFDQuery;
     QCidadesBusca: TFDQuery;
     QCidadesCadastroID: TIntegerField;
@@ -23,9 +32,8 @@ type
     QCidadesBuscaUF: TStringField;
     QCidadesBuscaCODIGO_IBGE: TIntegerField;
   private
-    { Private declarations }
   public
-    { Public declarations }
+    procedure CidadesBuscar(const ACondicao: String);
   end;
 
 var
@@ -36,5 +44,14 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TModelCidadesDM.CidadesBuscar(const ACondicao: String);
+begin
+  QCidadesBusca.Close;
+  QCidadesBusca.SQL.Clear;
+  QCidadesBusca.SQL.Add('select * from cidades');
+  QCidadesBusca.SQL.Add(ACondicao);
+  QCidadesBusca.Open;
+end;
 
 end.
