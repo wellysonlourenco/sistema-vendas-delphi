@@ -1,15 +1,21 @@
 inherited ViewCidadesBuscar: TViewCidadesBuscar
-  Caption = 'ViewCidadesBuscar'
+  Caption = 'Cidades buscar'
+  StyleElements = [seFont, seClient, seBorder]
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  PixelsPerInch = 96
   TextHeight = 13
   inherited pnTopo: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Label1: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
     inherited edtBuscar: TEdit
+      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 795
     end
   end
   inherited pnGrid: TPanel
+    StyleElements = [seFont, seClient, seBorder]
     ExplicitTop = 73
     ExplicitHeight = 375
     inherited DBGrid1: TDBGrid
@@ -27,6 +33,7 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
         item
           Expanded = False
           FieldName = 'UF'
+          Width = 64
           Visible = True
         end
         item
@@ -37,6 +44,7 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
     end
   end
   inherited pnRodape: TPanel
+    StyleElements = [seFont, seClient, seBorder]
     inherited rdGroupFiltros: TRadioGroup
       Columns = 3
       ItemIndex = 1
@@ -50,8 +58,10 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
     end
   end
   inherited pnTotal: TPanel
+    StyleElements = [seFont, seClient, seBorder]
     inherited lbTotal: TLabel
       Height = 19
+      StyleElements = [seFont, seClient, seBorder]
     end
   end
   inherited DataSource1: TDataSource

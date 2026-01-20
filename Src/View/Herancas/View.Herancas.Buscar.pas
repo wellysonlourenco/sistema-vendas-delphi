@@ -17,7 +17,7 @@ uses
   Vcl.Buttons,
   Data.DB,
   Vcl.Grids,
-  Vcl.DBGrids;
+  Vcl.DBGrids, Vcl.Menus;
 
 type
   TViewHerancasBuscar = class(TForm)
@@ -34,6 +34,11 @@ type
     pnTotal: TPanel;
     lbTotal: TLabel;
     DataSource1: TDataSource;
+    btnAlterar: TBitBtn;
+    PopupMenu1: TPopupMenu;
+    Atualizar1: TMenuItem;
+    N1: TMenuItem;
+    Excluir1: TMenuItem;
     procedure btnFecharClick(Sender: TObject);
     procedure btnUtilizarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -45,6 +50,9 @@ type
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure rdGroupFiltrosClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure Atualizar1Click(Sender: TObject);
+    procedure Excluir1Click(Sender: TObject);
   private
   protected
     procedure BuscarDados; virtual;
@@ -58,6 +66,17 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TViewHerancasBuscar.Atualizar1Click(Sender: TObject);
+begin
+  Self.BuscarDados;
+end;
+
+procedure TViewHerancasBuscar.btnAlterarClick(Sender: TObject);
+begin
+  if(DataSource1.DataSet.IsEmpty)then
+    raise Exception.Create('Selecione um registro');
+end;
 
 procedure TViewHerancasBuscar.btnFecharClick(Sender: TObject);
 begin
@@ -121,6 +140,22 @@ begin
     btnUtilizar.Click;
 end;
 
+procedure TViewHerancasBuscar.Excluir1Click(Sender: TObject);
+begin
+  if(DataSource1.DataSet.IsEmpty)then
+    raise Exception.Create('Selecione um registro');
+
+  if(Application.MessageBox(
+     'Confirma exclusão desse registro?',
+     'Confirma exclusão',
+     MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) <> IDYES)
+  then
+    Exit;
+
+    DataSource1.DataSet.Delete;
+    Self.BuscarDados;
+end;
+
 procedure TViewHerancasBuscar.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   case(Key)of
@@ -130,6 +165,12 @@ begin
        Key := 0;
    end;
    VK_ESCAPE: btnFechar.Click;
+  end;
+
+  if (Key in[VK_F1..VK_F12]) then
+  begin
+    if (rdGroupFiltros.Items.Count >= Key - VK_F1) then
+      rdGroupFiltros.ItemIndex := Key - VK_F1;
   end;
 end;
 
